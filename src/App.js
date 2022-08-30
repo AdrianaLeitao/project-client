@@ -9,14 +9,25 @@ import EditGame from './pages/EditGame/EditGame';
 import DancePage from './pages/DancePage/DancePage';
 import DanceDetails from './pages/DanceDetails/DanceDetails';
 import EditDance from './pages/EditDance/EditDance';
+import Anon from './components/Anon/Anon';
+import Profile from './pages/Profile/Profile';
+import EditProfile from './pages/EditProfile/EditProfile';
 
 function App() {
   return (
     <div className="App">
     <Routes>
-    <Route path='/memories' element={<MemoriesPage />} />
-      <Route path='/signup' element={<SignupPage />} />
-      <Route path='/login' element={<LoginPage />} />
+    <Route path='/' element={<MemoriesPage />} />
+      <Route path='/signup' element={
+      <Anon>
+        <SignupPage />
+      </Anon> } />
+      <Route path='/login' element={
+      <Anon>
+        <LoginPage />
+      </Anon>} />
+      <Route path='/profile/:userid' element={<Profile />} />
+      <Route path='/profile/edit/:userid' element={<EditProfile />} />
       <Route path='/games' element={<GamePage />} />
       <Route path='/games/:gameId' element={<GameDetails />} />
       <Route path='/games/edit/:gameId' element={<EditGame />} />

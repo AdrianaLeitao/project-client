@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -9,6 +9,7 @@ function SignupPage() {
     const [country, setCountry] = useState('')
     const [imageProfile, setImageProfile] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
+    const [countries, setCountries] = useState([])
 
     const navigate = useNavigate();
 
@@ -32,6 +33,20 @@ function SignupPage() {
         })
     }
 
+    const getCountries = async() => {
+        try {
+            let response = await axios.get(`${process.env.REACT_APP_EXTERNAL_URL}`)
+            const countryNames = response.data.map((country) => country.name.common)
+            setCountries(countryNames)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getCountries()
+    }, [])
+
     return(
         <div className="SignupPage">
             <h1>Signup</h1>
@@ -47,7 +62,10 @@ function SignupPage() {
                 <input type="password" name="password" value={password} onChange={handlePassword} />
 
                 <label htmlFor="country">Country</label>
-                <input type="text" name="country" value={country} onChange={handleCountry} />
+            <select name="country" id="country" onChange={handleCountry}>
+                {countries.map((country) => <option key={country} value={country}>{country}</option> )}
+
+            </select>
 
                 <label htmlFor="imageProfile">Select file:</label>
                 <input type="file" name="imageProfile" value={imageProfile} onChange={handleImageProfile} />

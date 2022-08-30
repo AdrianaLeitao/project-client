@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import SignupPage from './pages/SignupPage/SignupPage';
@@ -12,10 +13,12 @@ import EditDance from './pages/EditDance/EditDance';
 import Anon from './components/Anon/Anon';
 import Profile from './pages/Profile/Profile';
 import EditProfile from './pages/EditProfile/EditProfile';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
+    <Navbar />
     <Routes>
     <Route path='/' element={<MemoriesPage />} />
       <Route path='/signup' element={

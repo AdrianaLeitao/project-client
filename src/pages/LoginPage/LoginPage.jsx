@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
@@ -24,7 +25,7 @@ function LoginPage() {
         .then((response) => {
             storeToken(response.data.authToken);
             authenticateUser();
-            navigate('/memories');
+            navigate('/');
         })
         .catch((err) => {
             setErrorMessage(err.response.data.errorMessage);

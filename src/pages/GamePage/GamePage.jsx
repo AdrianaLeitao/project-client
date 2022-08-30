@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -15,7 +16,7 @@ function GamePage() {
                     Authorization: `Bearer ${storedToken}`
                 }
             })
-            setGames(response.data.reverse());
+            setGames(response.data);
         } catch (error) {
             console.log(error)
         }

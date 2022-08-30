@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -26,7 +27,6 @@ function Profile() {
     
       return (
         <div className='UserPage'>
-    
             {user.map((user) => {
                 return (
                     <div className="ProfileCard card" key={user._id}>

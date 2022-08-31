@@ -8,6 +8,29 @@ function EditGame() {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [howPlay, setHowPlay] = useState('')
+    const [fileUrl, setFileUrl] = useState("");
+    const [loading, setLoading] = useState(false);
+
+
+  const handleFileUpload = (e) => {
+    setLoading(true);
+
+    const uploadData = new FormData();
+
+    uploadData.append("fileUrl", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
+      .then((response) => {
+        console.log(response.data.fileUrl)
+        setFileUrl(response.data.fileUrl);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log("Error while uploading the file: ", err);
+      });
+  };
 
     const {id} = useParams();
     const navigate = useNavigate();
@@ -28,7 +51,7 @@ function EditGame() {
         getGame();
     }, []);
 
-    const handleImg = (e) => setImg(e.target.value)
+    /* const handleImg = (e) => setImg(e.target.value) */
     const handleName = (e) => setName(e.target.value)
     const handleDescription = (e) => setDescription(e.target.value)
     const handleHowPlay = (e) => setHowPlay(e.target.value)
@@ -56,7 +79,8 @@ function EditGame() {
     
             <form onSubmit={handleSubmit}>
                 <label htmlFor="img">Select file:</label>
-                <input type="file" name="img" value={img} onChange={handleImg} />
+                {/* <input type="file" name="img" value={img} onChange={handleImg} /> */}
+                <input type="file" onChange={(e) => handleFileUpload(e)} />
 
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" value={name} onChange={handleName} />

@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import AddGame from '../../components/AddGame/AddGame';
 
 function GamePage() {
     const [games, setGames] = useState([])
@@ -28,8 +27,7 @@ function GamePage() {
 
   return (
     <div className='GamePage'>
-    <AddGame getgames={getGames} />
-
+ 
         {games.map((game) => {
             return (
                 <div className="GameCard card" key={game._id}>

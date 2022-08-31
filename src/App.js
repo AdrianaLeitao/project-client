@@ -14,6 +14,8 @@ import Anon from './components/Anon/Anon';
 import Profile from './pages/Profile/Profile';
 import EditProfile from './pages/EditProfile/EditProfile';
 import Navbar from './components/Navbar/Navbar';
+import ViewsDance from './pages/ViewsDance/ViewsDance';
+import ViewsGames from './pages/ViewsGames/ViewsGames';
 
 function App() {
   return (
@@ -29,8 +31,10 @@ function App() {
       <Anon>
         <LoginPage />
       </Anon>} />
-      <Route path='/profile/:userid' element={<Profile />} />
-      <Route path='/profile/edit/:userid' element={<EditProfile />} />
+      <Route path='/viewsDance' element={<ViewsDance />} />
+      <Route path='/viewsGames' element={<ViewsGames />} />
+      <Route path='/profile/:userId' element={<Profile />} />
+      <Route path='/profile/edit/:userId' element={<EditProfile />} />
       <Route path='/games' element={<GamePage />} />
       <Route path='/games/:gameId' element={<GameDetails />} />
       <Route path='/games/edit/:gameId' element={<EditGame />} />

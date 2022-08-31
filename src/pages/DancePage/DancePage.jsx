@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import AddDance from '../../components/AddDance/AddDance';
 
 function DancePage() {
     const [dances, setDances] = useState([])
@@ -16,7 +15,7 @@ function DancePage() {
                     Authorization: `Bearer ${storedToken}`
                 }
             })
-            setDances(response.data.reverse());
+            setDances(response.data);
         } catch (error) {
             console.log(error)
         }
@@ -28,7 +27,6 @@ function DancePage() {
 
   return (
     <div className='DancePage'>
-    <AddDance getDances={getDances} />
 
         {dances.map((dance) => {
             return (

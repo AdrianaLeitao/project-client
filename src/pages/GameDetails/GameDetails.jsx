@@ -38,12 +38,12 @@ function GameDetails() {
                 <h1>{games.name}</h1>
                 <p>{games.description}</p>
 
-                {games.map((game) => (
-                    <li className='GameCard card' key={game._id}>
-                    <img src={game.img} alt="" />
-                        <h3>{game.name}</h3>
-                        <p>{game.description}</p>
-                        <p>{game.howPlay}</p>
+                {games.map((games) => (
+                    <li className='GameCard card' key={games._id}>
+                    <img src={games.img} alt="" />
+                        <h3>{games.name}</h3>
+                        <p>{games.description}</p>
+                        <p>{games.howPlay}</p>
                     </li>
         ))}
             </>

@@ -7,11 +7,34 @@ function AddDance({getDances}) {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [video, setVideo] = useState([])
+    const [fileUrl, setFileUrl] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleImage = (e) => setIamge(e.target.value)
+
+  const handleFileUpload = (e) => {
+    setLoading(true);
+
+    const uploadData = new FormData();
+
+    uploadData.append("fileUrl", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
+      .then((response) => {
+        console.log(response.data.fileUrl)
+        setFileUrl(response.data.fileUrl);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log("Error while uploading the file: ", err);
+      });
+  };
+
+    /* const handleImage = (e) => setIamge(e.target.value) */
     const handleName = (e) => setName(e.target.value)
     const handleDescription = (e) => setDescription(e.target.value)
-    const handleVideo = (e) => setVideo(e.target.value)
+    /* const handleVideo = (e) => setVideo(e.target.value) */
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -35,7 +58,8 @@ function AddDance({getDances}) {
         <h3>Add Dance</h3>
 
         <form onSubmit={handleSubmit}>
-            <img src={image} alt="" onChange={handleImage} />
+            {/* <img src={image} alt="" onChange={handleImage} /> */}
+            <input type="file" onChange={(e) => handleFileUpload(e)} />
 
             <label htmlFor="name">Name</label>
             <input type="text" name="name" value={name} onChange={handleName} />
@@ -43,7 +67,8 @@ function AddDance({getDances}) {
             <label htmlFor="description">Description</label>
             <input type="text" name="description" value={description} onChange={handleDescription} />
 
-            <video src={video} onChange={handleVideo} />
+            {/* <video src={video} onChange={handleVideo} /> */}
+            <input type="file" onChange={(e) => handleFileUpload(e)} />
             
             <button type='submit'>Add Dance</button>
         </form>

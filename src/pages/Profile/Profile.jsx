@@ -1,43 +1,58 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import {AuthContext} from "../../context/auth.context";
 
 function Profile() {
-        const [user, setUser] = useState('')
-    
-        const getUser = async () => {
+        const {id} = useParams();
+        const [profile, setProfile] = useState('')
+        const {user} = useContext(AuthContext)
+        const getProfile = async () => {
             try {
                 const storedToken = localStorage.getItem('authToken')
     
-                let response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/:userId`, {
+                let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/profile/${user._id}`, {
                     headers: {
                         Authorization: `Bearer ${storedToken}`
                     }
                 })
-                setUser(response.data);
+                /* console.log(response.data) */
+                setProfile(response.data)
             } catch (error) {
                 console.log(error)
             }
         }
     
         useEffect(() => {
-            getUser();
-        }, []);
+            getProfile();
+        }, [user]);
     
       return (
-        <div className='UserPage'>
-            {user.map((user) => {
-                return (
-                    <div className="ProfileCard card" key={user._id}>
-                        <Link to={`/profile/${user._id}`}>
-                            <img src={user.img} alt="" />
-                            <h3>{user.name}</h3>
-                        </Link>
-                    </div>
-                )
-            })}
+        <>
+        <div className='ProfilePage'>
+          <img id='img' src={profile.imageProfile} alt=""  />
+          <h1>{profile.username}</h1>
+          <p>{profile.email}</p>
+          <Link to={`/profile/edit/${profile._id}`}>
+            <button id='btn-b'>Edit</button>
+          </Link>
         </div>
+
+        {/* {user._id === id &&
+          <Link to={`/api/games`}>
+            <button>Add Game</button>
+          </Link>
+          }
+
+          {user._id === id &&
+          <Link to={`/api/dance`}>
+            <button>Add Dance</button>
+          </Link>
+          } */}
+
+          <h2>My Traditions</h2>
+        </>
       )
     }
 

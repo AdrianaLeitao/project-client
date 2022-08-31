@@ -4,31 +4,31 @@ import { AuthContext }  from '../../context/auth.context';
 import { useContext } from 'react';
 
 function Navbar() {
-  const { loggedIn, logout } = useContext(AuthContext)
+  const { loggedIn, user,  logout } = useContext(AuthContext)
 
   return (
     <nav className='Navbar'>
         <Link to="/">
-            <button>Home</button>
+            <button className='nav-navbar'>Home</button>
         </Link>
 
         {loggedIn && (
           <>
-            <Link to="/profile/:userId">
-              <button>My Profile</button>
+            <Link to={`/profile/${user._id}`}>
+              <button className='nav-navbar'>My Profile</button>
             </Link>
-            <button onClick={logout}>Logout</button>
+            <button onClick={logout} className='nav-navbar'>Logout</button>
           </>
         )}
 
         {!loggedIn && (
           <>
             <Link to="/login">
-              <button>Login</button>
+              <button className='nav-navbar'>Login</button>
             </Link>
 
             <Link to="/signup">
-              <button>Signup</button>
+              <button className='nav-navbar'>Signup</button>
             </Link>
           </>
         )}

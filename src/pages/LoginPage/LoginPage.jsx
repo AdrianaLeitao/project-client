@@ -37,19 +37,19 @@ function LoginPage() {
             <h1>Login</h1>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" value={username} onChange={handleUsername} />
+                <label id='login-b' htmlFor="username">Username</label>
+                <input id='login-a' type="text" name="username" value={username} onChange={handleUsername} />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" value={password} onChange={handlePassword} />
+                <label id='login-b' htmlFor="password">Password</label>
+                <input id='login-a' type="password" name="password" value={password} onChange={handlePassword} />
 
-                <button type="submit">Login</button>
+                <button id='btn-a' type="submit">Login</button>
             </form>
 
             {errorMessage && (<p>{errorMessage}</p>)}
 
-            <h5>Don't have an account?</h5>
-            <Link to="/signup">Sign Up</Link>
+            <h5 className='account'>Don't have an account?</h5>
+            <Link id='link-a' to="/signup">Sign Up</Link>
         </div>
     )
 }

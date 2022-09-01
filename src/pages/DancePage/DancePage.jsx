@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import AddDance from '../../components/AddDance/AddDance';
 
 function DancePage() {
     const [dances, setDances] = useState([])
@@ -27,10 +28,9 @@ function DancePage() {
 
   return (
     <div className='DancePage'>
-
         {dances.map((dance) => {
             return (
-                <div className="DanceCard card" key={dance._id}>
+                <div key={dance._id}>
                     <Link to={`/dance/${dance._id}`}>
                         <img src={dance.image} alt="" />
                         <h3>{dance.name}</h3>
@@ -38,6 +38,8 @@ function DancePage() {
                 </div>
             )
         })}
+        
+        <AddDance getDances = {getDances} />
     </div>
   )
 }

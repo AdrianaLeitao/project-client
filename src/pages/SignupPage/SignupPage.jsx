@@ -51,6 +51,7 @@ function SignupPage() {
             navigate('/login');
         })
         .catch((err) => {
+            console.log(err)
             setErrorMessage(err.response.data.errorMessage);
         })
     }

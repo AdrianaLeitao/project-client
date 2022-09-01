@@ -55,22 +55,22 @@ function AddDance({getDances}) {
 
   return (
     <div className='AddDance'>
-        <h3>Add Dance</h3>
+        <h3 className='adding'>Add Dance</h3>
 
         <form onSubmit={handleSubmit}>
             {/* <img src={image} alt="" onChange={handleImage} /> */}
-            <input type="file" onChange={(e) => handleFileUpload(e)} />
+            <input  id='login-c' type="file" onChange={(e) => handleFileUpload(e)} />
 
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" value={name} onChange={handleName} />
+            <label id='login-d' htmlFor="name">Name</label>
+            <input id='login-e' type="text" name="name" value={name} onChange={handleName} />
 
-            <label htmlFor="description">Description</label>
-            <input type="text" name="description" value={description} onChange={handleDescription} />
+            <label id='login-d1' htmlFor="description">Description</label>
+            <input id='login-e1' type="text" name="description" value={description} onChange={handleDescription} />
 
             {/* <video src={video} onChange={handleVideo} /> */}
-            <input type="file" onChange={(e) => handleFileUpload(e)} />
+            <input id='login-e' type="file" onChange={(e) => handleFileUpload(e)} />
             
-            <button type='submit'>Add Dance</button>
+            <button id='link-a' type='submit'>Add Dance</button>
         </form>
     </div>
   );

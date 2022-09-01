@@ -28,6 +28,7 @@ function LoginPage() {
             navigate('/');
         })
         .catch((err) => {
+            console.log(err)
             setErrorMessage(err.response.data.errorMessage);
         })
     }

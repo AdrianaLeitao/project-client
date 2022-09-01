@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import AddGame from '../../components/AddGame/AddGame';
 
 function GamePage() {
     const [games, setGames] = useState([])
@@ -15,6 +16,7 @@ function GamePage() {
                     Authorization: `Bearer ${storedToken}`
                 }
             })
+            console.log(response.data)
             setGames(response.data);
         } catch (error) {
             console.log(error)
@@ -27,10 +29,9 @@ function GamePage() {
 
   return (
     <div className='GamePage'>
- 
         {games.map((game) => {
             return (
-                <div className="GameCard card" key={game._id}>
+                <div key={game._id}>
                     <Link to={`/games/${game._id}`}>
                         <img src={game.img} alt="" />
                         <h3>{game.name}</h3>
@@ -38,6 +39,8 @@ function GamePage() {
                 </div>
             )
         })}
+        
+        <AddGame getGames = {getGames} />
     </div>
   )
 }

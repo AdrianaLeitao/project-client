@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 function MemoriesPage() {
 
   return (    
-  <><h3>Memories</h3>
+  <>
+  <h3 className='memo'>Memories</h3>
 
 <div class="w-64 carousel rounded-box">
   <div class="carousel-item w-full">

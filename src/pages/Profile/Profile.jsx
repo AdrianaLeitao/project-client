@@ -26,30 +26,30 @@ function Profile() {
     
         useEffect(() => {
             getProfile();
-        }, [user]);
+        }, []);
     
       return (
         <>
-        <div className='ProfilePage'>
+        {profile &&
+          <div className='ProfilePage'>
           <img id='img' src={profile.imageProfile} alt=""  />
           <h1>{profile.username}</h1>
           <p>{profile.email}</p>
           <Link to={`/profile/edit/${profile._id}`}>
             <button id='btn-b'>Edit</button>
           </Link>
-        </div>
+        </div>}
 
-        {/* {user._id === id &&
-          <Link to={`/api/games`}>
+  
+         {/*  <Link to={`/api/games`}>
             <button>Add Game</button>
           </Link>
-          }
+        
 
-          {user._id === id &&
           <Link to={`/api/dance`}>
             <button>Add Dance</button>
-          </Link>
-          } */}
+          </Link> */}
+          
 
           <h2>My Traditions</h2>
         </>

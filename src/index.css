@@ -37,8 +37,8 @@ nav {
  }
 
 h2,
-h3,
-h4 {
+h4,
+.memo {
 	display: flex;
 	justify-content: center;
 	color: #E47833;
@@ -59,6 +59,7 @@ h4 {
   padding: 10px;
   border-radius: 5px;
 }
+
 
 .SignupPage form,
 .LoginPage form {
@@ -139,6 +140,48 @@ h4 {
   border-radius: 5px;
 }
 
+.AddGame,
+.AddDance {
+  background: #A68064;
+  border: 1px solid #f9eec3;
+  box-shadow: 0px 2px 3px #f9eec3;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.AddGame {
+  background: #A68064;
+  border: 1px solid #f9eec3;
+  box-shadow: 0px 2px 3px #f9eec3;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.EditGamePage,
+.EditDancePage,
+.EditProfilePage {
+  background: lightgray;
+  border: 1px solid #f9eec3;
+  box-shadow: 0px 2px 3px #f9eec3;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 50px;
+  border-radius: 5px;
+}
+
 h1,
 p {
   display: flex;
@@ -161,4 +204,94 @@ p {
   margin-top: 5px;
   width: fit-content;
   font-size: 1rem;
+}
+
+#login-d {
+  display: flex;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+	border: none;
+	border-radius: 5px;
+  margin-top: 20px;
+}
+
+#login-e {
+  display: flex;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+  margin-bottom: 20px;
+	border: none;
+	border-radius: 5px;
+}
+
+#login-d1 {
+  display: flex;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+	border: none;
+	border-radius: 5px;
+  margin-top: 20px;
+}
+
+#login-e1 {
+  display: flex;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-right: 20px;
+	border: none;
+	border-radius: 5px;
+}
+
+.adding {
+  display: flex;
+  text-align: center;
+	justify-content: center;
+	color: #f9eec3;
+	margin: 1rem;
+}
+
+#login2 {
+  display: flex;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+	border: none;
+	border-radius: 5px;
+  margin-top: 20px;
+}
+
+#login1 {
+  display: flex;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-right: 20px;
+	border: none;
+	border-radius: 5px;
+}
+
+.bt {
+  background-color: #f9eec3;
+  color: #000;
+  font-weight: 700;
+  padding: 5px 10px;
+  margin-top: 15px;
+  width: fit-content;
+  font-size: 1rem;
+}
+
+.edits {
+  display: flex;
+  text-align: center;
+	justify-content: center;
+	color: #A68064;
+	margin: 1rem;
 }

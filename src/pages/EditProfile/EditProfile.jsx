@@ -28,7 +28,7 @@ function EditProfile() {
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
       .then((response) => {
         console.log(response.data.fileUrl)
-        setFileUrl(response.data.fileUrl);
+        setImageProfile(response.data.fileUrl);
         setLoading(false);
       })
       .catch((err) => {
@@ -60,7 +60,7 @@ function EditProfile() {
         getUser();
     }, [user]);
 
-    const handleImageProfile = (e) => setImageProfile(e.target.value)
+    /* const handleImageProfile = (e) => setImageProfile(e.target.value) */
     const handleUsername = (e) => setUsername(e.target.value)
     const handleEmail = (e) => setEmail(e.target.value)
     const handlePassword = (e) => setPassword(e.target.value)
@@ -91,23 +91,23 @@ function EditProfile() {
 
     return (
         <div className='EditProfilePage'>
-            <h3>Edit Profile</h3>
+            <h3 className='edits'>Edit Profile</h3>
     
             <form onSubmit={handleSubmit}>
-                <label htmlFor="imageProfile">Select file:</label>
-                <input type="file" name="imageProfile" value={imageProfile} onChange={handleImageProfile} />
-                <input type="file" onChange={(e) => handleFileUpload(e)} />
+                <label id='login2' htmlFor="imageProfile">Select file:</label>
+                {/* <input type="file" name="imageProfile" value={imageProfile} onChange={handleImageProfile} /> */}
+                <input id='login1' type="file" onChange={(e) => handleFileUpload(e)} />
 
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" value={username} onChange={handleUsername} />
+                <label id='login2' htmlFor="username">Username</label>
+                <input id='login1' type="text" name="username" value={username} onChange={handleUsername} />
     
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" value={email} onChange={handleEmail} />
+                <label id='login2' htmlFor="email">Email</label>
+                <input id='login1' type="email" name="email" value={email} onChange={handleEmail} />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" value={password} onChange={handlePassword} />
+                <label id='login2' htmlFor="password">Password</label>
+                <input id='login1' type="password" name="password" value={password} onChange={handlePassword} />
         
-                <button type='submit'>Edit Profile</button>
+                <button className='bt' type='submit'>Edit Profile</button>
             </form>
         </div>
   );

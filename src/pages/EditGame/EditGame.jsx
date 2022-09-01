@@ -75,23 +75,23 @@ function EditGame() {
 
     return (
         <div className='EditGamePage'>
-            <h3>Edit Game</h3>
+            <h3 className='edits'>Edit Game</h3>
     
             <form onSubmit={handleSubmit}>
-                <label htmlFor="img">Select file:</label>
+                <label id='login2' htmlFor="img">Select file:</label>
                 {/* <input type="file" name="img" value={img} onChange={handleImg} /> */}
-                <input type="file" onChange={(e) => handleFileUpload(e)} />
+                <input id='login1' type="file" onChange={(e) => handleFileUpload(e)} />
 
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" value={name} onChange={handleName} />
+                <label id='login2' htmlFor="name">Name</label>
+                <input id='login1' type="text" name="name" value={name} onChange={handleName} />
     
-                <label htmlFor="description">Description</label>
-                <input type="text" name="description" value={description} onChange={handleDescription} />
+                <label id='login2' htmlFor="description">Description</label>
+                <input id='login1' type="text" name="description" value={description} onChange={handleDescription} />
 
-                <label htmlFor="howPlay">HowPlay</label>
-                <input type="file" name="howPlay" value={howPlay} onChange={handleHowPlay} />
+                <label id='login2' htmlFor="howPlay">HowPlay</label>
+                <input id='login1' type="file" name="howPlay" value={howPlay} onChange={handleHowPlay} />
     
-                <button type='submit'>Edit Game</button>
+                <button className='bt' type='submit'>Edit Game</button>
             </form>
         </div>
       );

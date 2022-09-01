@@ -24,7 +24,7 @@ function DanceDetails() {
     }, []);
 
     const deleteDance = () => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/api/dance/${id}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/api/dance/delete/${id}`)
         .then(() => {
             navigate('/dance')
         })
@@ -50,11 +50,11 @@ function DanceDetails() {
         )}
 
         <Link to={`/dance/edit/${id}`}>
-            <button>Edit Dance</button>
+            <button className='bt1'>Edit Dance</button>
         </Link>
 
         <Link to="/dance">
-            <button onClick={deleteDance}>Delete</button>
+            <button className='bt1' onClick={deleteDance}>Delete</button>
         </Link>
 
     </div>

@@ -88,8 +88,8 @@ function EditGame() {
                 <label id='login2' htmlFor="description">Description</label>
                 <input id='login1' type="text" name="description" value={description} onChange={handleDescription} />
 
-                <label id='login2' htmlFor="howPlay">HowPlay</label>
-                <input id='login1' type="file" name="howPlay" value={howPlay} onChange={handleHowPlay} />
+                <label id='login2' htmlFor="howPlay">How to Play</label>
+                <input id='login1' type="text" name='howPlay' value={howPlay} onChange={handleHowPlay} />
     
                 <button className='bt' type='submit'>Edit Game</button>
             </form>

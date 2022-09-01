@@ -24,7 +24,7 @@ function GameDetails() {
     }, []);
 
     const deleteGames = () => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/api/games/${id}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/api/games/delete/${id}`)
         .then(() => {
             navigate('/games')
         })
@@ -50,11 +50,11 @@ function GameDetails() {
         )}
 
         <Link to={`/games/edit/${id}`}>
-            <button>Edit Game</button>
+            <button className='bt1'>Edit Game</button>
         </Link>
 
         <Link to="/games">
-            <button onCanPlay={deleteGames}>Delete</button>
+            <button className='bt1' onCanPlay={deleteGames}>Delete</button>
         </Link>
 
     </div>

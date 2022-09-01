@@ -59,7 +59,7 @@ function AddGame({getGames}) {
         <h3 className='adding'>Add Game</h3>
 
         <form onSubmit={handleSubmit}>
-            
+            <label id='login-d' htmlFor="image">Select file:</label>
             {/* <img src={img} alt="" onChange={handleImg} /> */}
             <input id='login-c' type="file" onChange={(e) => handleFileUpload(e)} />
 

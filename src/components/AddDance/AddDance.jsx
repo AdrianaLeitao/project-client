@@ -58,6 +58,7 @@ function AddDance({getDances}) {
         <h3 className='adding'>Add Dance</h3>
 
         <form onSubmit={handleSubmit}>
+            <label id='login-d' htmlFor="image">Select file:</label>
             {/* <img src={image} alt="" onChange={handleImage} /> */}
             <input  id='login-c' type="file" onChange={(e) => handleFileUpload(e)} />
 
@@ -67,6 +68,7 @@ function AddDance({getDances}) {
             <label id='login-d1' htmlFor="description">Description</label>
             <input id='login-e1' type="text" name="description" value={description} onChange={handleDescription} />
 
+            <label id='login-d1' htmlFor="video">Video</label>
             {/* <video src={video} onChange={handleVideo} /> */}
             <input id='login-e' type="file" onChange={(e) => handleFileUpload(e)} />
             
